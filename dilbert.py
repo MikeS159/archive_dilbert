@@ -34,6 +34,7 @@ while(currentDate != date.today()) : #Loop until todays date is reached
         searchName = ""
         for tag in tagList :
             searchName += "_" + tag #Build string of tag names for filename
+        searchName = searchName.replace("/", "-") #Remove any / since it messes up the files names
 
         urllib.request.urlretrieve(getUrl, str(year) + "/" + str(currentDate) + searchName + ".gif") #Get the image from the URL add date and tags as file name, put in year folder
         currentDate = currentDate + timedelta(days=1) #Next day
